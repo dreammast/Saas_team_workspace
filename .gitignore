@@ -76,3 +76,14 @@ Thumbs.db
 **/yarn-error.log*
 **/pnpm-debug.log*
 **/lerna-debug.log*
+
+# Render specific
+.render/
+
+# AI System Logs & Sandbox
+.gemini/
+brain/
+scratch/
+
+# Local Tools / Maven Binaries
+**/tools/

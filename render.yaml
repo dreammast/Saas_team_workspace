@@ -1,0 +1,39 @@
+services:
+  # Backend Web Service (Spring Boot API)
+  - type: web
+    name: projectflow-backend
+    env: java
+    buildCommand: cd SAAS_platform/backend && mvn clean package -DskipTests
+    startCommand: java -jar SAAS_platform/backend/target/backend-0.0.1-SNAPSHOT.jar
+    plan: free
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://db.ahypgqvobutdirukxwfh.supabase.co:5432/postgres?sslmode=require
+      - key: SPRING_DATASOURCE_USERNAME
+        value: postgres
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: P1,o2,i3,u4
+      - key: SPRING_MAIL_USERNAME
+        value: dreammasterorigin@gmail.com
+      - key: SPRING_MAIL_PASSWORD
+        value: jdianbzijuaxvuri
+      - key: JWT_SECRET
+        value: 407780T00Y587123984712034981723491823491823498172349817239487123
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: FRONTEND_URL
+        value: https://projectflow-frontend.onrender.com
+
+  # Frontend Web Service (Static Site)
+  - type: web
+    name: projectflow-frontend
+    env: static
+    buildCommand: cd SAAS_platform/frontend && npm install && npm run build
+    publishDir: SAAS_platform/frontend/dist
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: projectflow-backend
+          type: web
+          property: host
