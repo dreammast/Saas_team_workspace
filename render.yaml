@@ -8,17 +8,17 @@ services:
     plan: free
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:postgresql://db.ahypgqvobutdirukxwfh.supabase.co:5432/postgres?sslmode=require
+        sync: false
       - key: SPRING_DATASOURCE_USERNAME
-        value: postgres
+        sync: false
       - key: SPRING_DATASOURCE_PASSWORD
-        value: P1,o2,i3,u4
+        sync: false
       - key: SPRING_MAIL_USERNAME
-        value: dreammasterorigin@gmail.com
+        sync: false
       - key: SPRING_MAIL_PASSWORD
-        value: jdianbzijuaxvuri
+        sync: false
       - key: JWT_SECRET
-        value: 407780T00Y587123984712034981723491823491823498172349817239487123
+        generateValue: true
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: update
       - key: FRONTEND_URL

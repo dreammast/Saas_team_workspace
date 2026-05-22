@@ -1,0 +1,89 @@
+# =========================================================================
+# Project-wide / IDE Ignores
+# =========================================================================
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.patch
+*.diff
+.DS_Store
+Thumbs.db
+
+# =========================================================================
+# Backend (Java / Spring Boot / Maven)
+# =========================================================================
+# Maven target directories
+**/target/
+**/out/
+**/bin/
+
+# Eclipse project files
+**/.classpath
+**/.project
+**/.settings/
+
+# IntelliJ IDEA project files
+**/*.iml
+**/*.ipr
+**/*.iws
+
+# NetBeans
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+
+# Log files
+**/*.log
+**/logs/
+
+# =========================================================================
+# Frontend (React / Node / Vite)
+# =========================================================================
+# Dependency directories
+**/node_modules/
+**/jspm_packages/
+
+# Build outputs
+**/dist/
+**/dist-ssr/
+**/build/
+**/.svelte-kit/
+**/.next/
+**/.nuxt/
+**/.cache/
+**/.vite/
+
+# ESLint cache
+**/.eslintcache
+
+# Local env files
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+# Package manager lock files / logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+**/lerna-debug.log*
+
+# Render specific
+.render/
+
+# AI System Logs & Sandbox
+.gemini/
+brain/
+scratch/
+
+# Local Tools / Maven Binaries
+**/tools/

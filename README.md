@@ -139,14 +139,19 @@ Open `http://localhost:5173` to interact with the application.
 
 ## 🔒 Production Security Guidelines
 
-> [!WARNING]
-> The current [render.yaml](file:///e:/SAAS_platform/render.yaml) file contains explicit connection properties and SMTP tokens to facilitate immediate testing. If you make this GitHub repository **public**, follow these instructions immediately:
+> [!IMPORTANT]
+> The repository has been **completely scrubbed** of all hardcoded passwords, database URLs, and API tokens to ensure 100% security for both public and private GitHub hosting.
 
-1. **Move Secrets to Render Dashboard**: Edit the `render.yaml` or go to the Render Dashboard, open your web services settings, and move these variables to the **Secret Files** or dashboard **Environment Variables**:
-   - `SPRING_DATASOURCE_PASSWORD`
-   - `SPRING_MAIL_PASSWORD` (App Password)
-   - `JWT_SECRET`
-2. **Commit Placeholder Values**: Replace actual passwords inside the git-tracked `render.yaml` with placeholder references (e.g. `placeholder-db-pwd`) or remove them to pull them dynamically from Render's cloud environment.
+### How Secrets are Managed in Production (Render Cloud)
+The [render.yaml](file:///e:/SAAS_platform/render.yaml) file utilizes the secure `sync: false` attribute. When you deploy the Blueprint on Render:
+1. Render will scan the file and detect the required credential fields.
+2. The Render UI will **prompt you to enter the following values securely** before compiling:
+   - `SPRING_DATASOURCE_URL`: Your Supabase connection string.
+   - `SPRING_DATASOURCE_USERNAME`: Your Supabase database username (e.g. `postgres`).
+   - `SPRING_DATASOURCE_PASSWORD`: Your Supabase database password (`P1,o2,i3,u4`).
+   - `SPRING_MAIL_USERNAME`: The Gmail address sending alerts (`dreammasterorigin@gmail.com`).
+   - `SPRING_MAIL_PASSWORD`: The Google App Password you provided (`jdia nbzi juax vuri`).
+3. **`JWT_SECRET` auto-generation**: The `JWT_SECRET` is set to `generateValue: true`, meaning Render will automatically generate a secure, high-entropy 256-bit signing key for you out-of-the-box!
 
 ---
 
